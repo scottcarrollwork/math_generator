@@ -1,11 +1,15 @@
 class PdfGeneratorController < ApplicationController
+  include ActionController::MimeResponds
   
   def multiplication_game
     multiplication_pairs = (1..12).to_a.product((1..12).to_a)
 
     multiplication_pairs.shuffle!
 
-    render json: multiplication_pairs
+    respond_to do |format|
+      format.html # renders app/views/pdf_generator/multiplication_game.html.erb
+      format.json { render json: multiplication_pairs }
+    end
   end
 
   def generate_multiplication_table

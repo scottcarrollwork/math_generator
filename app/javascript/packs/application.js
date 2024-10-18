@@ -15,12 +15,10 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import Vue from 'vue'
-import MultiplicationTable from './MultiplicationTable.vue'
+import { createApp } from 'vue';
+import MultiplicationGame from './MultiplicationGame.vue';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    render: h => h(MultiplicationTable)
-  }).$mount()
-  document.body.appendChild(app.$el)
-})
+  const app = createApp(MultiplicationGame);
+  app.mount('#app');
+});

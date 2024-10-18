@@ -12,7 +12,6 @@
     <button @click="checkAnswers">Check Answers</button>
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -24,7 +23,7 @@ export default {
   },
   methods: {
     fetchEquations() {
-      fetch('/multiplication_game')
+      fetch('/pdf_generator/multiplication_game.json')
         .then(response => response.json())
         .then(data => {
           this.equations = data;
@@ -43,7 +42,6 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .equation-row {
   margin: 10px 0;
